@@ -67,10 +67,17 @@ const HomePage = () => {
       
       {/* Feature Boxes */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6 p-6 mt-8">
-        {[fastDelivery, trustedPharmacy, securePayment, support, affordablePrice, trackOrder].map((img, index) => (
+        {[
+          { img: fastDelivery, text: "Fast Delivery" },
+          { img: trustedPharmacy, text: "Trusted Pharmacy" },
+          { img: securePayment, text: "Secure Payment" },
+          { img: support, text: "24/7 Support" },
+          { img: affordablePrice, text: "Affordable Prices" },
+          { img: trackOrder, text: "Track Your Order" }
+        ].map((feature, index) => (
           <div key={index} className="bg-gray-100 p-4 rounded-lg shadow-md flex flex-col items-center">
-            <img src={img} alt={`Feature ${index + 1}`} className="h-24 w-24 object-cover rounded-lg" />
-            <p>Feature {index + 1}</p>
+            <img src={feature.img} alt={feature.text} className="h-24 w-24 object-cover rounded-lg" />
+            <p>{feature.text}</p>
           </div>
         ))}
       </div>
