@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 import { FaSearch, FaShoppingCart, FaUser, FaHome, FaPhoneAlt, FaEnvelope, FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { MdLocalPharmacy } from 'react-icons/md';
 import { IoLocationSharp } from 'react-icons/io5';
+import fastDelivery from '../assets/fastdelivery.jpg';
+import trustedPharmacy from '../assets/trustedpharmacy.jpg';
+import securePayment from '../assets/securepayment.png';
+import support from '../assets/support.png';
+import affordablePrice from '../assets/affordable_price.jpg';
+import trackOrder from '../assets/trackorder.avif';
+import logo from '../assets/mainlogo.png';
 
 const HomePage = () => {
   const [deliveryCode, setDeliveryCode] = useState('');
@@ -13,7 +20,7 @@ const HomePage = () => {
       {/* Navbar */}
       <nav className="flex justify-between items-center p-4 bg-green-600 shadow-lg text-white">
         <div className="flex items-center space-x-2">
-          <img src="/logo.png" alt="MedFast Logo" className="h-10 w-10" />
+          <img src={logo} alt="MedFast Logo" className="h-10 w-10" />
           <h1 className="text-2xl font-bold">MedFast</h1>
           
           {/* Delivery Address Dropdown */}
@@ -60,9 +67,9 @@ const HomePage = () => {
       
       {/* Feature Boxes */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6 p-6 mt-8">
-        {["fast-delivery.png", "trusted-pharmacy.png", "secure-payment.png", "support.png", "affordable.png", "track-order.png"].map((img, index) => (
+        {[fastDelivery, trustedPharmacy, securePayment, support, affordablePrice, trackOrder].map((img, index) => (
           <div key={index} className="bg-gray-100 p-4 rounded-lg shadow-md flex flex-col items-center">
-            <img src={`/images/${img}`} alt="Feature" className="h-24 w-24 object-cover rounded-lg" />
+            <img src={img} alt={`Feature ${index + 1}`} className="h-24 w-24 object-cover rounded-lg" />
             <p>Feature {index + 1}</p>
           </div>
         ))}
