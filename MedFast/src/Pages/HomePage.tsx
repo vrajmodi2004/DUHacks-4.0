@@ -111,7 +111,6 @@ const HomePage = () => {
             <ul>
               <li><Link to="/about" className="hover:text-yellow-400">About Us</Link></li>
               <li><Link to="/contact" className="hover:text-yellow-400">Contact</Link></li>
-              <li><Link to="/faq" className="hover:text-yellow-400">FAQs</Link></li>
             </ul>
           </div>
           <div>
@@ -125,6 +124,16 @@ const HomePage = () => {
         </div>
         <div className="text-center text-sm mt-4">© 2025 MedFast. All Rights Reserved.</div>
       </footer>
+
+      {/* FAQ Section */}
+      <section className="p-8 bg-gray-100 mt-8">
+        <h2 className="text-2xl font-bold text-center mb-4">Frequently Asked Questions</h2>
+        <div className="space-y-4">
+          <div><strong>Q: How can I place an order?</strong><br/>A: You can search for medicines, add them to your cart, and proceed to checkout.</div>
+          <div><strong>Q: What are the delivery charges?</strong><br/>A: Delivery charges vary based on location and order value.</div>
+          <div><strong>Q: Can I return medicines?</strong><br/>A: Returns are accepted for damaged or incorrect products.</div>
+        </div>
+      </section>
     </div>
   );
 };

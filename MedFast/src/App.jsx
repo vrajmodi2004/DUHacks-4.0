@@ -7,6 +7,7 @@ import CartPage from './Pages/CartPage';
 import OrderTracking from './Pages/OrderTrackingPage';
 import PharmacyDashboard from './Pages/PharmacyDashboardPage';
 import AdminDashboard from './Pages/AdminDashboardPage';
+import RegisterPage from './Pages/RegiterPage';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/auth" element={<AuthPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/search" element={<MedicineListing />} />
         <Route path="/medicine/:id" element={<MedicineDetails />} />
         <Route path="/cart" element={<CartPage />} />
