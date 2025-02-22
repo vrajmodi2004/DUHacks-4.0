@@ -14,6 +14,38 @@ import logo from '../assets/mainlogo.png';
 const HomePage = () => {
   const [deliveryCode, setDeliveryCode] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggle = (index) => {
+    if (activeIndex === index) {
+      setActiveIndex(null);
+    } else {
+      setActiveIndex(index);
+    }
+  };
+
+  const faqs = [
+    {
+      question: "What is MedFast?",
+      answer:
+        "MedFast is a trusted platform for quick and secure medicine delivery at your doorstep.",
+    },
+    {
+      question: "How do I order medicines?",
+      answer:
+        "You can search for medicines by category or name and place an order directly from the website.",
+    },
+    {
+      question: "Is the delivery really fast?",
+      answer:
+        "Yes, we offer superfast delivery to ensure your medicines reach you in the shortest time possible.",
+    },
+    {
+      question: "Can I track my order?",
+      answer:
+        "Yes, you can track your order status in real-time after placing it.",
+    },
+  ];
 
   return (
     <div className="h-screen bg-white text-black">
@@ -67,7 +99,7 @@ const HomePage = () => {
       
       {/* Feature Boxes */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6 p-6 mt-8">
-        {[
+        {[ 
           { img: fastDelivery, text: "Fast Delivery" },
           { img: trustedPharmacy, text: "Trusted Pharmacy" },
           { img: securePayment, text: "Secure Payment" },
@@ -132,6 +164,29 @@ const HomePage = () => {
         </div>
         <div className="text-center text-sm mt-4">© 2025 MedFast. All Rights Reserved.</div>
       </footer>
+
+      {/* FAQ Section */}
+      <div className="bg-gray-100 py-12 mt-12">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <div key={index} className="border-b pb-4">
+                <div
+                  className="flex justify-between items-center cursor-pointer text-lg font-semibold"
+                  onClick={() => toggle(index)}
+                >
+                  <p>{faq.question}</p>
+                  <span>{activeIndex === index ? "-" : "+"}</span>
+                </div>
+                {activeIndex === index && (
+                  <p className="text-gray-700 mt-2">{faq.answer}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
