@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const AdminDashboard = () => {
-  const [products, setProducts] = useState([]);
+  interface Product {
+    id: number;
+    name: string;
+    dosage: string;
+    price: number;
+    image: string;
+  }
+  
+  const [products, setProducts] = useState<Product[]>([]);
   const [formData, setFormData] = useState({
     id: "",
     name: "",

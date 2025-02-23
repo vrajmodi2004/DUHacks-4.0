@@ -8,13 +8,15 @@ import OrderTracking from './Pages/OrderTrackingPage';
 import PharmacyDashboard from './Pages/PharmacyDashboardPage';
 import AdminDashboard from './Pages/AdminDashboardPage';
 import RegisterPage from './Pages/RegiterPage';
+import UploadReport from './Pages/UploadReport';
+import RecommendedMedicines from './Pages/RecommendedMedicines';
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/" element={<AuthPage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/search" element={<MedicineListing />} />
         <Route path="/medicine/:id" element={<MedicineDetails />} />
@@ -22,6 +24,8 @@ const App = () => {
         <Route path="/track-order" element={<OrderTracking />} />
         <Route path="/pharmacy-dashboard" element={<PharmacyDashboard />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/upload-report" element={<UploadReport />} />
+        <Route path="/recommended-medicines" element={<RecommendedMedicines />} />
       </Routes>
     </Router>
   );

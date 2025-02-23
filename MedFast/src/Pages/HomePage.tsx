@@ -80,11 +80,12 @@ const HomePage = () => {
         
         {/* Navbar Icons */}
         <div className="flex space-x-6 text-lg items-center">
+          <Link to="/upload-report" className="hover:text-yellow-400 text-white">Upload Report</Link>
           <Link to="/" className="hover:text-yellow-400 text-white"><FaHome size={24} /></Link>
           <Link to="/search" className="hover:text-yellow-400 text-white"><FaSearch size={24} /></Link>
           <Link to="/cart" className="hover:text-yellow-400 text-white"><FaShoppingCart size={24} /></Link>
           <Link to="/auth" className="border-2 border-green-500 px-4 py-1 rounded-lg flex items-center bg-white text-green-600">
-            <FaUser className="mr-1" /> Login
+            <FaUser className="mr-1" /> Logout
           </Link>
         </div>
       </nav>
