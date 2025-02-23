@@ -50,10 +50,12 @@ const HomePage = () => {
   return (
     <div className="h-screen bg-white text-black">
       {/* Navbar */}
-      <nav className="flex justify-between items-center p-4 bg-green-600 shadow-lg text-white">
+      <nav className="flex justify-between items-center p-6 bg-green-600 shadow-lg text-white">
+
         <div className="flex items-center space-x-2">
-          <img src={logo} alt="MedFast Logo" className="h-10 w-10" />
-          <h1 className="text-2xl font-bold">MedFast</h1>
+        <img src={logo} alt="MedFast Logo" className="h-24 w-auto object-contain" />
+
+
           
           {/* Delivery Address Dropdown */}
           <div className="relative">
@@ -61,7 +63,7 @@ const HomePage = () => {
               className="flex items-center bg-green-700 px-3 py-2 rounded-lg"
               onClick={() => setShowDropdown(!showDropdown)}
             >
-              <IoLocationSharp className="text-white mr-1" />
+              <span className="text-white mr-1"><IoLocationSharp /></span>
               Enter Delivery Address
             </button>
             {showDropdown && (
