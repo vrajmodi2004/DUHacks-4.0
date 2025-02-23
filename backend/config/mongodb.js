@@ -1,13 +1,31 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-const connectDB = async ()=>{
+dotenv.config(); // Load environment variables
 
-    mongoose.connection.on('connected',()=>{
-        console.log("DB connected");
-        
-    })
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGODB_URL);
 
-    await mongoose.connect(`${process.env.MONGODB_URI}/MedFast`)
-}
+    console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.error(`❌ Error connecting to MongoDB: ${error.message}`);
+    process.exit(1); // Exit process with failure
+  }
+};
 
 export default connectDB;
+
+// import mongoose from "mongoose";
+
+// const connectDB = async ()=>{
+
+//     mongoose.connection.on('connected',()=>{
+//         console.log("DB connected");
+
+//     })
+
+//     await mongoose.connect(`${process.env.MONGODB_URI}/MedFast`)
+// }
+
+// export default connectDB;

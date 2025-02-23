@@ -25,6 +25,6 @@ const DeliverySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-Delivery = mongoose.models.Delivery || mongoose.model('Delivery', DeliverySchema);
+const Delivery = mongoose.models.Delivery || mongoose.model('Delivery', DeliverySchema);
 
 export default Delivery
