@@ -1,15 +1,40 @@
 import Product from "../models/Product.js";
 
-// Create a new product
-export const createProduct = async (req, res) => {
+// // Create a new product
+// export const createProduct = async (req, res) => {
+//   try {
+//     const product = new Product(req.body);
+//     await product.save();
+//     res.status(201).json(product);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
+
+  export const createProduct = async (req, res) => {
   try {
-    const product = new Product(req.body);
+    const { name, dosage, price, image } = req.body;
+
+    // Validate required fields
+    if (!name || !dosage || !price || !image) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+
+    // Create new product
+    const product = new Product({
+      name,
+      dosage,
+      price: Number(price),  // Convert price to Number
+      image
+    });
+
     await product.save();
     res.status(201).json(product);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
 
 // Get all products
 export const getProducts = async (req, res) => {

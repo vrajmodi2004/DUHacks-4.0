@@ -1,3 +1,4 @@
+// server.js
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -6,9 +7,9 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
-import connectDB from "../Backend/config/mongodb.js";
-import authRoutes from "../Backend/routes/authRoutes.js";
-import productRoutes from "../Backend/routes/productRoutes.js";
+import connectDB from "./config/mongodb.js"; // Adjusted path if needed
+import authRoutes from "./routes/authRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
 
 // Load environment variables
 dotenv.config();
@@ -32,9 +33,10 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(morgan("dev")); // Logs requests to console
-app.use(helmet()); // Security headers
+app.use(morgan("dev"));
+app.use(helmet());
 
+// Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 
@@ -43,18 +45,17 @@ app.get("/", (req, res) => {
   res.send("Instant Medicine Delivery API is running...");
 });
 
-// 404 Route Not Found Handler
+// 404 Handler
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
 });
 
-// Global Error Handling Middleware
+// Global Error Handling
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: "Something went wrong!" });
 });
 
 // Start Server
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-
